@@ -72,9 +72,27 @@ function mergeSort(array) {
 //In addition to a mergeSort function, which will continue to split the input array and call the merge function again and again recursively
 //Since merge sort is implemented recursively, we can sort multiple elements/sections of the list at a time
 
-//Basics of Merge Sort
-//1. Merging actually referring to is the act of appending an item in a sorted order to a temporary array structure which builds over time
-//2. If we multiply the log on n by the value of n, the result ends up being the number of total append operations to perform
+//Merging Lists by Appending Elements
+//Merging actually referring to is the act of appending an item in a sorted order to a temporary array structure which builds over time
+//What it means is that when we merge a + b, we compare them using > + <, then we "append" the larger of the two to the end of the smaller  
+//Remember that an "append" operation involves two steps
+//First, comparing the items that we want to combine together && Second, inserting them into our temporary array in sorted order
+
+//How Merging is Logarithmic
+//If n is the number of items in our list that we are tryin to sort
+//-> When n = 8, we must perform n * 3 (24) append operations | n = 8 : log2 8 = 3
+//-> When n = 16, we must perform n * 4 (64) append operations | n = 16 : log2 16 = 4
+//-> When n = 4, we must perform n * 2 (8) append operations | n = 4 : log2 4 = 8
+//-> When n = 2, we must perform n * 1 (4) append operations | n = 2 : log2 2 = 2
+
+//If we multiply the log on n by the value of n, the result ends up being the number of total append operations to perform
+
+//Using this abstraction we can determine how many operations it would take to perform merge sort on any size list
+//1. List of 16 items (n=16) = 16 * log2 16 | 16 * 4 | 64 operations
+//2. List of 64 items (n=64) = 64 * log2 64 | 64 * 6 | 384 operations
+
+//Given the fact that the amount of time that merge sort needs to run is (n * log n), there's clearly both linear and logarithmic aspects
+//Merge sort's time complexity is a combination of linear and logarithmic time, this is referred to as Linearithmic time [O(n log n)]
 
 //Big O Notation
 //Time Complexity - Linearithmic Runtime O(n Log n), given the amount of time that merge sort needs there's clearly aspects of both at play
